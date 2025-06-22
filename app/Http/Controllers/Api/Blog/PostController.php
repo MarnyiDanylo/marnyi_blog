@@ -14,4 +14,15 @@ class PostController extends Controller
 
         return $posts;
     }
+
+    public function show($id)
+    {
+        $post = BlogPost::with(['user', 'category'])
+            ->find($id);
+
+        return response()->json([
+            'data' => $post,
+            'success' => true
+        ]);
+    }
 }
