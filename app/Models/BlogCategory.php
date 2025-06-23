@@ -56,4 +56,9 @@ class BlogCategory extends Model
     {
         return $this->id === BlogCategory::ROOT;
     }
+
+    public function posts()
+    {
+        return $this->hasMany(BlogPost::class, 'category_id');
+    }
 }
